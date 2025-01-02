@@ -1,25 +1,29 @@
 To create a boilerplate react with typescript run following command
 
-# npm create vite@latest react-ts-basics
+## npm create vite@latest react-ts-basics
 
 Then run following to install all packages
-#npm install
+
+## npm install
 
 Then rin following code to launch the app
-#npm run dev
 
-## Deploying React App on Githib Web Pages
+## npm run dev
+
+## Deploying React App on Github Web Pages
 
 Just follow these simple steps:
 
 1. Install the gh-pages package (ctrl+~ to open the terminal in VS Code)
-   npm install gh-pages --save-dev
+   ## npm install gh-pages
 2. In the package.json file add these lines before "build": "vite build",
-   "predeploy": "npm run build",
-   "deploy": "gh-pages -d dist",
+   ## "predeploy": "npm run build",
+   ## "deploy": "gh-pages -d dist",
 3. In the vite.config.js file add this line before plugins: [react()],
-   base: "/YOUR_REPOSITORY_NAME",
-   Change YOUR_REPOSITORY_NAME to the name of your GitHub repository.
+
+   ## base: "/YOUR_REPOSITORY_NAME",
+
+   ## Change YOUR_REPOSITORY_NAME to the name of your GitHub repository.
 
 4. In terminal type
    npm run deploy
