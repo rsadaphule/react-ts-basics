@@ -10,7 +10,7 @@ html {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(#f0f6f8, #e0e1e7);
+  background: linear-gradient(#3a616d, #e0e1e7);
 }
 
 main {
@@ -41,7 +41,7 @@ img {
 header h1 {
   margin: 0;
   font-size: 1.75rem;
-  color: royalblue;
+  color: rgb(214, 225, 65);
 }
 
 label {

@@ -4,6 +4,7 @@ interface CourseGoalProps {
   title: string;
   children: ReactNode;
   id?: number;
+  onDeleteGoal: (id: number) => void;
 }
 
 export default function CourseGoal(props: CourseGoalProps) {
@@ -11,11 +12,15 @@ export default function CourseGoal(props: CourseGoalProps) {
   return (
     <article>
       <div>
-        <h2>
-          {id} - {props.title}
-        </h2>
+        <h2>{props.title}</h2>
         {props.children}
-        <button>Delete</button>
+        <button
+          onClick={() => {
+            props.onDeleteGoal(id);
+          }}
+        >
+          Delete
+        </button>
       </div>
     </article>
   );

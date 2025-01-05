@@ -2,32 +2,33 @@
 //import reactLogo from "./assets/react.svg";
 //import viteLogo from "/vite.svg";
 import CourseGoal from "./components/CourseGoal.tsx";
+import { Goal } from "./components/CourseGoalList.tsx";
 import Header from "./components/Header.tsx";
 import goalsImage from "./assets/goals.jpg";
 //import "./App.css";
 import { useState } from "react";
-
-type Goal = {
-  title: string;
-  description: string;
-  id: number;
-};
+import CourseGoalList from "./components/CourseGoalList.tsx";
+import NewGoal from "./components/NewGoal.tsx";
 
 function App() {
   //const [count, setCount] = useState(0);
 
-  const [goals, setGoal] = useState<Goal[]>([]);
+  const [goals, setGoals] = useState<Goal[]>([]);
 
-  function handleAddGoal() {
-    console.log("inside handleAddGoal");
-    console.log(goals);
-    setGoal((prevGoals) => {
+  function handleAddGoal(title: string, description: string) {
+    setGoals((prevGoals) => {
       const newGoal: Goal = {
-        id: 100,
-        title: "hardcoded title",
-        description: "hardcoded desc",
+        id: Math.random(),
+        title: title,
+        description: description,
       };
       return [...prevGoals, newGoal];
+    });
+  }
+
+  function handleDeleteGoal(id: number) {
+    setGoals((prevGoals) => {
+      return prevGoals.filter((goal) => goal.id !== id);
     });
   }
 
@@ -36,20 +37,8 @@ function App() {
       <Header image={{ src: goalsImage, alt: "A list of goals" }}>
         <h1>Your Course Goals</h1>
       </Header>
-      <button onClick={handleAddGoal}>Add Goal</button>
-      <ul>
-        {goals.map((goal, index) => {
-          console.log("inside map");
-          console.log(goals.length);
-          return (
-            <li key={index}>
-              <CourseGoal id={goal.id} title={goal.title}>
-                <p>{goal.description}</p>
-              </CourseGoal>
-            </li>
-          );
-        })}
-      </ul>
+      <NewGoal addGoal={handleAddGoal} />
+      <CourseGoalList goals={goals} onDeleteGoal={handleDeleteGoal} />
     </>
   );
 }
