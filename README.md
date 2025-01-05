@@ -26,8 +26,9 @@ Just follow these simple steps:
    ## Change YOUR_REPOSITORY_NAME to the name of your GitHub repository.
 
 4. In terminal type
-   npm run deploy
+   ## npm run deploy
    🎉 You now have a gh-pages branch in your repository and your app is deployed (you can check it under Settings -> Pages )
+5. view your site at https://rsadaphule.github.io/<github repo name>
 
 P.S. To update your app deployment, just run the npm run deploy command again.
 

@@ -1,33 +1,55 @@
+//import { Component, useState } from "react";
+//import reactLogo from "./assets/react.svg";
+//import viteLogo from "/vite.svg";
+import CourseGoal from "./components/CourseGoal.tsx";
+import Header from "./components/Header.tsx";
+import goalsImage from "./assets/goals.jpg";
+//import "./App.css";
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+
+type Goal = {
+  title: string;
+  description: string;
+  id: number;
+};
 
 function App() {
-  const [count, setCount] = useState(0);
+  //const [count, setCount] = useState(0);
+
+  const [goals, setGoal] = useState<Goal[]>([]);
+
+  function handleAddGoal() {
+    console.log("inside handleAddGoal");
+    console.log(goals);
+    setGoal((prevGoals) => {
+      const newGoal: Goal = {
+        id: 100,
+        title: "hardcoded title",
+        description: "hardcoded desc",
+      };
+      return [...prevGoals, newGoal];
+    });
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR 2
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header image={{ src: goalsImage, alt: "A list of goals" }}>
+        <h1>Your Course Goals</h1>
+      </Header>
+      <button onClick={handleAddGoal}>Add Goal</button>
+      <ul>
+        {goals.map((goal, index) => {
+          console.log("inside map");
+          console.log(goals.length);
+          return (
+            <li key={index}>
+              <CourseGoal id={goal.id} title={goal.title}>
+                <p>{goal.description}</p>
+              </CourseGoal>
+            </li>
+          );
+        })}
+      </ul>
     </>
   );
 }
