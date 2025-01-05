@@ -1,7 +1,7 @@
 //import { Component, useState } from "react";
 //import reactLogo from "./assets/react.svg";
 //import viteLogo from "/vite.svg";
-import CourseGoal from "./components/CourseGoal.tsx";
+//import CourseGoal from "./components/CourseGoal.tsx";
 import { Goal } from "./components/CourseGoalList.tsx";
 import Header from "./components/Header.tsx";
 import goalsImage from "./assets/goals.jpg";
