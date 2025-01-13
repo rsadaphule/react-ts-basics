@@ -1,6 +1,6 @@
 To create a boilerplate react with typescript run following command
 
-## npm create vite@latest react-ts-basics
+## npm create vite@latest react-ts-basics --template react-ts
 
 Then run following to install all packages
 
